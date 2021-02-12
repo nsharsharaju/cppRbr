@@ -11,3 +11,8 @@
 ->Function Calling.
 
 Parameters passed to function are called actual parameters.
+
+Different ways of calling a function
+    (1.Call by Value)
+    (2.Call by Reference)
+    (3.Call by Pointer)
