@@ -1,0 +1,26 @@
+->Funtions are most important ones in C++.
+
+->They make the code modular.
+
+->Function Structure.
+
+->Function Prototype.
+
+->Function Definition.
+
+->Function Calling.
+
+Parameters passed to function are called actual parameters.
+
+Different ways of calling a function
+    (1.Call by Value)
+    (2.Call by Reference)
+    (3.Call by Pointer)
+
+Inline Functions
+
+Default Arguments(All the default arguments should be at end).
+
+Const Arguments are the one declared with const.
+
+Function Overloading.
