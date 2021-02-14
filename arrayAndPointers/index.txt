@@ -1,0 +1,18 @@
+Derived & User Defined Data Types
+
+Pointers
+
+Dereferencing or indirection
+
+void*
+
+nullptr (It's a keyword)
+
+Arrays
+
+Initialization of Arrays
+
+Pointers to Arrays
+
+MultiDimentional Arrays
+
