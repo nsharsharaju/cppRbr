@@ -16,3 +16,4 @@ Pointers to Arrays
 
 MultiDimentional Arrays
 
+Row Major and Column Major
