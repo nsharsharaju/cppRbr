@@ -17,3 +17,7 @@ Pointers to Arrays
 MultiDimentional Arrays
 
 Row Major and Column Major
+
+Passing array to function
+
+Pointers to a function
