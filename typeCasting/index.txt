@@ -1,0 +1,9 @@
+Typecasting
+
+Typecasting is making a variable of one type, such as int, act like another type,
+a char, for one single operation.
+
+To typecast something, put the type of variable you want the actual variable To
+act as inside parentheses in front of the actual variable
+
+Implicit type conversion in C++
