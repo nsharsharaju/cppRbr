@@ -1,0 +1,5 @@
+Structures
+
+A structure is a sequence of elements of arbitrary dataType.
+
+Unions
