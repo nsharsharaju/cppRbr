@@ -14,3 +14,6 @@ typedef long long int ll;
 
 typedef can also be used for struct.
 
+Pointers and Multi Dimentional Arrays
+
+Try and catch blocks in C++
