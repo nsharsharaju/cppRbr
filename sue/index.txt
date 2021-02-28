@@ -3,3 +3,14 @@ Structures
 A structure is a sequence of elements of arbitrary dataType.
 
 Unions
+
+Structure Members alignment
+
+Some more remaining concepts are done in sue only
+
+typedef
+
+typedef long long int ll;
+
+typedef can also be used for struct.
+
