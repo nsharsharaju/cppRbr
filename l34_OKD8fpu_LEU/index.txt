@@ -1,0 +1,9 @@
+In this lecture we will discuss about Templates
+
+-> These allows us to write generic code.
+
+-> There are two different ways
+
+-> Function Templates
+
+-> Class Templates
