@@ -1,0 +1,5 @@
+In this lecture we will discuss about count, count_if
+
+Unary Predicate
+
+1 argument converted into bool
