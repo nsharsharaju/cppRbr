@@ -1,0 +1,5 @@
+This lecture will be discuss about binary_search, upper_bound, lower_bound
+
+upper_bound - in sorted array, element strictly greater than given element
+
+lower_bound - in sorted array, element not less than given element
