@@ -1,0 +1,3 @@
+In this lecture we will discuss about Priority Queues.
+
+Priority Queues are implemented as Heaps
