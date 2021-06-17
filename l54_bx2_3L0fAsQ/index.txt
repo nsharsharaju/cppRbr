@@ -1,0 +1,1 @@
+In this lecture we will discuss about max, max_element, min, min_element
