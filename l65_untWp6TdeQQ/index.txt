@@ -1,0 +1,1 @@
+In this lecture we will do demo on Deque
