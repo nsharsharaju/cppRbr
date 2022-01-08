@@ -47,4 +47,20 @@ public:
             tail = n;
         }
     }
+
+    void insert(int data, int pos) {
+        if(pos == 0) {
+            push_front(data);
+        }
+        else {
+            Node * n = new Node(data);
+            Node *temp = head;
+            for(int jump = 1;jump<=pos-1;jump++) {
+                temp = temp->next;
+            }
+            n->next = temp->next;
+            temp->next = n;
+        }
+        return;
+    }
 };

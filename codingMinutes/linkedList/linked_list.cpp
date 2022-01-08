@@ -7,6 +7,8 @@ int main() {
     l.push_back(1);
     l.push_front(2);
     l.push_back(3);
+    l.insert(10,1);
+    l.insert(9,1);
 
     Node * head = l.begin();
     while(head!=NULL) {
