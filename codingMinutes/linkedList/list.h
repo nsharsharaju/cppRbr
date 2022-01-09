@@ -2,7 +2,6 @@ class List;
 
 class Node{
     int data;
-
 public:
     Node* next;
     Node(int d):data(d),next(nullptr){}
@@ -17,6 +16,20 @@ public:
 class List{
     Node * head;
     Node * tail;
+
+    int searchHelper(Node* head, int key) {
+        if(head == nullptr) return -1;
+        else {
+            if(head->data == key) {
+                return 0;
+            }
+            else {
+                int idx = searchHelper(head->next,key);
+                if(idx == -1) return -1;
+                else return 1+idx;
+            }
+        }
+    }
 public:
     List():head(nullptr),tail(nullptr){}
 
@@ -62,5 +75,23 @@ public:
             temp->next = n;
         }
         return;
+    }
+
+    int search(int key) {
+        Node *temp = head;
+        int idx = 0;
+        while(temp->next != nullptr) {
+            if(temp->data == key) {
+                return idx;
+            }
+            idx++;
+            temp = temp->next;
+        }
+        return -1;
+    }
+
+    int recursiveSearch(int key){
+        int idx = searchHelper(head,key);
+        return idx;
     }
 };
