@@ -10,6 +10,12 @@ public:
         return data;
     }
 
+    ~Node() {
+        if(next!=nullptr) {
+            delete next;
+        }
+    }
+
     friend class List;
 };
 
@@ -93,5 +99,12 @@ public:
     int recursiveSearch(int key){
         int idx = searchHelper(head,key);
         return idx;
+    }
+
+    ~List() {
+        if(head!=nullptr) {
+            delete head;
+            head == nullptr;
+        }
     }
 };
