@@ -101,6 +101,14 @@ public:
         return idx;
     }
 
+    void pop_front() {
+        if(head == nullptr) return;
+        Node * temp = head;
+        head = head->next;
+        temp->next = nullptr;
+        return;
+    }
+
     ~List() {
         if(head!=nullptr) {
             delete head;
