@@ -16,5 +16,7 @@ int main() {
         head = head->next;
     }
     cout <<"NULL"<<endl;
+    cout << l.search(10) << endl;
+    cout << l.recursiveSearch(10) << endl;
     return 0;
 }
