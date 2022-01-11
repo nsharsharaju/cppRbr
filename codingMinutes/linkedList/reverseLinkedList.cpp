@@ -23,6 +23,14 @@ Node* insertAtEnd(Node* head, int data) {
     return head;
 }
 
+void print(Node* head) {
+    while(head!=NULL) {
+        cout << head->data << "->";
+        head = head->next;
+    }
+    cout << "NULL" << endl;
+}
+
 Node* reverse(Node* head) {
     if(head==NULL) return head;
     Node* prev = NULL;
@@ -34,14 +42,6 @@ Node* reverse(Node* head) {
         current = temp;
     }
     return prev;
-}
-
-void print(Node* head) {
-    while(head!=NULL) {
-        cout << head->data << "->";
-        head = head->next;
-    }
-    cout << "NULL" << endl;
 }
 
 int main (){
