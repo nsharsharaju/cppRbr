@@ -45,11 +45,21 @@ void printInOrder(Node *root) {
     return;
 }
 
+void printPostOrder(Node* root) {
+    if(root == nullptr) return;
+    printPostOrder(root->left);
+    printPostOrder(root->right);
+    cout << root->data << " ";
+    return;
+}
+
 int main() {
     Node* root = buildTree();
     printPreOrder(root);
     cout << endl;
     printInOrder(root);
+    cout << endl;
+    printPostOrder(root);
     cout << endl;
     return 0;
 }
