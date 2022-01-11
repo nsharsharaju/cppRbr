@@ -37,9 +37,19 @@ void printPreOrder(Node *root) {
     return;
 }
 
+void printInOrder(Node *root) {
+    if(root == nullptr) return;
+    printInOrder(root->left);
+    cout << root->data << " ";
+    printInOrder(root->right);
+    return;
+}
+
 int main() {
     Node* root = buildTree();
     printPreOrder(root);
+    cout << endl;
+    printInOrder(root);
     cout << endl;
     return 0;
 }
