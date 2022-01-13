@@ -67,12 +67,48 @@ int sumBT(Node* root) {
     return sum1 + sum2 + root->data;
 }
 
+vector<int> getKthLevel(Node* root, int k){
+    if(root == nullptr) return {};
+    if(k == 0) return {root->data};
+    vector<int> ans;
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    int level = 0;
+    while(!q.empty()) {
+        Node * temp = q.front();
+        if(temp == NULL) {
+            level++;
+            if(level == k+1) break;
+            q.pop();
+            if(!q.empty()) q.push(NULL);
+        }
+        else {
+            if(level == k) {
+                ans.push_back(temp->data);
+            }
+            else {
+                if(temp->left) q.push(temp->left);
+                if(temp->right) q.push(temp->right);
+            }
+            q.pop();
+        }
+    }
+    return ans;
+}
+
 int main() {
     Node* root = buildTree();
     preOrderTraversals(root);
     cout << endl;
     cout << height(root) << endl;
     cout << sumBT(root) << endl;
+    vector<int> ans = getKthLevel(root,3);
+    for(auto number: ans) {
+        cout << number << " ";
+    }
+    cout << endl;
+    return 0;
 }
 
 // 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
