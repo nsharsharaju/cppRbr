@@ -53,10 +53,18 @@ void preOrderTraversals(Node* root) {
     preOrderTraversals(root->right);
 }
 
+int height(Node* root) {
+    if(root == nullptr) return 0;
+    int h1 = height(root->left);
+    int h2 = height(root->right);
+    return 1+max(h1,h2);
+}
+
 int main() {
     Node* root = buildTree();
     preOrderTraversals(root);
     cout << endl;
+    cout << height(root) << endl;
 }
 
 // 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
