@@ -60,11 +60,19 @@ int height(Node* root) {
     return 1+max(h1,h2);
 }
 
+int sumBT(Node* root) {
+    if(root == nullptr) return 0;
+    int sum1 = sumBT(root->left);
+    int sum2 = sumBT(root->right);
+    return sum1 + sum2 + root->data;
+}
+
 int main() {
     Node* root = buildTree();
     preOrderTraversals(root);
     cout << endl;
     cout << height(root) << endl;
+    cout << sumBT(root) << endl;
 }
 
 // 1 2 3 4 5 -1 6 -1 -1 7 -1 -1 -1 -1 -1
