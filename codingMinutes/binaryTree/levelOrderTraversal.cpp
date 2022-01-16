@@ -3,6 +3,8 @@ using namespace std;
 
 // 1 2 4 -1 -1 5 7 -1 -1 -1 3 -1 6 -1 -1
 
+vector<vector<int>> globalV;
+
 class Node{
     public:
         int data;
@@ -86,6 +88,24 @@ void printAllPaths(Node *root, vector<int> &v) {
     return;
 }
 
+void targetSumAllPaths(Node *root, vector<int> &v, int target) {
+    if(root == nullptr) return;
+    if(root->left == nullptr && root->right == nullptr) {
+        vector<int> temp = v;
+        temp.push_back(root->data);
+        int sum = accumulate(temp.begin(),temp.end(),0);
+        if(sum == target) {
+            cout << "I am here" << endl;
+            globalV.push_back(temp);
+        }
+        return;
+    }
+    v.push_back(root->data);
+    targetSumAllPaths(root->left,v,target);
+    targetSumAllPaths(root->right,v,target);
+    v.pop_back();
+}
+
 int main(){
     Node* root = buildTree();
     printLevelOrderTraversal(root);
@@ -94,5 +114,14 @@ int main(){
     cout << endl;
     vector<int> v;
     printAllPaths(root,v);
+    cout << endl;
+    cout << "Target Path Start Here" << endl;
+    targetSumAllPaths(root,v,7);
+    for(auto v: globalV) {
+        for(auto number: v) {
+            cout << number << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
