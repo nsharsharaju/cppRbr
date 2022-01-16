@@ -28,6 +28,13 @@ void inorder(Node* root) {
     inorder(root->right);
 }
 
+bool search(Node* root, int key) {
+    if(root == nullptr) return false;
+    if(key == root->data) return true;
+    if(key < root->data) return search(root->left,key);
+    return search(root->right,key);
+}
+
 int main() {
     int arr[] = {8,3,10,1,6,14,4,7,13};
     Node* root = nullptr;
@@ -38,4 +45,11 @@ int main() {
 
     inorder(root);
     cout << endl;
+
+    int n = 0;
+    while(n!=-1){
+        cin >> n;
+        cout<< search(root,n) << endl;
+    }
+    return 0;
 }
