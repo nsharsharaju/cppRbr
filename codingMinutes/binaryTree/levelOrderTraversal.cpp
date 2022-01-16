@@ -69,11 +69,30 @@ void printLevelOrderTraversalAdvanced(Node* root) {
     return;
 }
 
+void printAllPaths(Node *root, vector<int> &v) {
+    if(root == nullptr) return;
+    if(root->left == nullptr && root->right == nullptr) {
+        for(auto number: v) {
+            cout << number << " ";
+        }
+        cout << root->data << " ";
+        cout << endl;
+        return;
+    }
+    v.push_back(root->data);
+    printAllPaths(root->left,v);
+    printAllPaths(root->right,v);
+    v.pop_back();
+    return;
+}
+
 int main(){
     Node* root = buildTree();
     printLevelOrderTraversal(root);
     cout << endl;
     printLevelOrderTraversalAdvanced(root);
     cout << endl;
+    vector<int> v;
+    printAllPaths(root,v);
     return 0;
 }
