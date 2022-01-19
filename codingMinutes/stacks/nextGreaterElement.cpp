@@ -2,40 +2,38 @@
 using namespace std;
 
 vector<int> nextGreaterElement(vector<int> v) { // 1, 2, 5, 3, 4
-    if(v.size() == 0 ) return {};
-    if(v.size() == 1) return {-1};
-    stack<int> s;
-    reverse(v.begin(),v.end());
-    s.push(-1);
-    int prev = v[0];
-    for(int i=1;i<v.size();i++) {
-        if(v[i]<prev) {
-            s.push(prev);
-        } 
-        else {
-            if(v[i]<s.top())
-            {
-                s.push(s.top());
-            }
-            else {
-                s.push(-1);
-            }
+    stack<int> st;
+    vector<int> nge(v.size(), 0);
+
+    for (int i = 0; i < v.size(); i++)
+    {
+        while(!st.empty() && v[i]>v[st.top()]) {
+            nge[st.top()] = i;
+            st.pop();
         }
-        prev = v[i];
+        st.push(i);
     }
-    v.clear();
-    while(!s.empty()) {
-        v.push_back(s.top());
-        s.pop();
+    while(!st.empty()) {
+        nge[st.top()] = -1;
+        st.pop();
     }
-    return v;
+    return nge;
 }
 
 int main() {
     vector<int> v = {10,4,5,2,25};
-    v = nextGreaterElement(v);
+    vector<int> nge = nextGreaterElement(v);
     for(auto ele: v) {
         cout << ele << " ";
     }
+    cout << endl;
+    for(auto index: nge) {
+        if(index == -1) {
+            cout << -1 << " ";
+        } else {
+            cout << v[index] << " ";
+        }
+    }
+    cout << endl;
     return 0;
 }
