@@ -10,6 +10,6 @@ int main() {
         b = a;
         a = temp % a;
     }
-    cout << a << endl;
+    cout << a << endl; 
     return 0;
 }
