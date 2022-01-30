@@ -30,8 +30,7 @@ const search = (root,word) => {
             return false
         }
     }
-    if(trav.terminator) return true
-    return false
+    return trav.terminator
 }
 
 const root = Node('&')
