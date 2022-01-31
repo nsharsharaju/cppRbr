@@ -26,16 +26,36 @@ public:
             cout << endl;
         }
     }
+
+    void bfs(int source){
+        queue<int> q;
+        vector<bool> visited(V,false);
+        q.push(source);
+        visited[source] = true;
+        while(!q.empty()) {
+            int top = q.front();
+            visited[top] = true;
+            cout << top << " ";
+            for(auto e: l[top]) {
+                if(!visited[e]) q.push(e);
+                visited[e] = true;
+            }
+            q.pop();
+        }
+        cout << endl;
+    }
 };
 
 int main(){
-    Graph g(6);
+    Graph g(7);
     g.addEdge(0,1);
-    g.addEdge(0,4);
-    g.addEdge(2,1);
-    g.addEdge(3,4);
-    g.addEdge(4,5);
-    g.addEdge(2,3);
+    g.addEdge(1,2);
     g.addEdge(3,5);
+    g.addEdge(5,6);
+    g.addEdge(4,5);
+    g.addEdge(0,4);
+    g.addEdge(3,4);
+    g.addEdge(2,3);
     g.printAdjList();
+    g.bfs(1);
 }
