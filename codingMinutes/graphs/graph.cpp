@@ -34,7 +34,6 @@ public:
         visited[source] = true;
         while(!q.empty()) {
             int top = q.front();
-            visited[top] = true;
             cout << top << " ";
             for(auto e: l[top]) {
                 if(!visited[e]) q.push(e);
@@ -42,6 +41,42 @@ public:
             }
             q.pop();
         }
+        cout << endl;
+    }
+
+    void dfs(int source){
+        stack<int> s;
+        vector<bool> visited(V,false);
+        s.push(source);
+        visited[source] = true;
+        while(!s.empty()) {
+            int top = s.top();
+            s.pop();
+            cout << top << " ";
+            for(auto e: l[top]) {
+                if (!visited[e])
+                {
+                    s.push(e);
+                    visited[e] = true;
+                }
+            }
+        }
+        cout << endl;
+    }
+
+    void dfsHelper(int node,bool* visited) {
+        visited[node] = true;
+        cout << node << " ";
+        for(auto nbr: l[node]) {
+            if(!visited[nbr]) {
+                dfsHelper(nbr,visited);
+            }
+        }
+    }
+
+    void dfsRecursive(int source){
+        bool *visited = new bool[V]{false};
+        dfsHelper(source,visited);
         cout << endl;
     }
 };
@@ -58,4 +93,6 @@ int main(){
     g.addEdge(2,3);
     g.printAdjList();
     g.bfs(1);
+    g.dfs(1);
+    g.dfsRecursive(1);
 }
