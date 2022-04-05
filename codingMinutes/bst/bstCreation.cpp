@@ -35,6 +35,19 @@ bool search(Node* root, int key) {
     return search(root->right,key);
 }
 
+void printInRange(Node* root,int k1, int k2) {
+    if(root == NULL) return;
+    if(k1<=root->data && k2>=root->data) {
+        printInRange(root->left,k1,k2);
+        cout << root->data << " ";
+        printInRange(root->right,k1,k2);
+    } else if(k1>root->data) {
+        printInRange(root->right,k1,k2);
+    } else {
+        printInRange(root->left,k1,k2);
+    }
+}
+
 int main() {
     int arr[] = {8,3,10,1,6,14,4,7,13};
     Node* root = nullptr;
@@ -51,5 +64,7 @@ int main() {
         cin >> n;
         cout<< search(root,n) << endl;
     }
+    printInRange(root,6,10);
+    cout << endl;
     return 0;
 }
