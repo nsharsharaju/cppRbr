@@ -21,6 +21,8 @@ int countWays(int target) {
 }
 
 int main() {
-    cout << countWays(4) << endl;
+    int target;
+    cin >> target;
+    cout << countWays(target) << endl;
     return 0;
 }
