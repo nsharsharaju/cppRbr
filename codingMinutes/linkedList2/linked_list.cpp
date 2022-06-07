@@ -73,6 +73,20 @@ node* reverseLL(node* head) {
     return newHead;
 }
 
+node* reverseLLIter(node* head) {
+    if(head == nullptr || head->next == nullptr) return head;
+    node* prev = nullptr;
+    node* curr = head;
+    while(curr->next!=nullptr) {
+        node* temp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = temp;
+    }
+    curr->next = prev;
+    return curr;
+}
+
 int main() {
     node* head = nullptr;
     head = insertAtHead(head,1);
@@ -82,6 +96,8 @@ int main() {
     head = insertAtEnd(head,100);
     printLL(head);
     head = reverseLL(head);
+    printLL(head);
+    head = reverseLLIter(head);
     printLL(head);
     return 0;
 }
