@@ -87,6 +87,37 @@ node* reverseLLIter(node* head) {
     return curr;
 }
 
+node* reverseLLK(node* head, int k) {
+    if(head == nullptr || head->next == nullptr) {
+        return head;
+    }
+    node* prev = nullptr;
+    node* curr = head;
+    while(curr->next!=nullptr) {}
+}
+
+node* merge(node* a, node* b) {
+    //base case
+    if(a == NULL) {
+        return b;
+    }
+    if(b == NULL) {
+        return a;
+    }
+
+    node* c;
+    if(a->data < b->data) {
+        c = a;
+        c->next = merge(a->next,b);
+    }
+    if(a->data > b->data) {
+        c = b;
+        c->next = merge(a,b->next);
+    }
+    return c;
+}
+
+
 int main() {
     node* head = nullptr;
     head = insertAtHead(head,1);
@@ -99,5 +130,23 @@ int main() {
     printLL(head);
     head = reverseLLIter(head);
     printLL(head);
+
+
+    node* a = nullptr;
+    a = insertAtHead(a,5);
+    a = insertAtHead(a,3);
+    a = insertAtHead(a,1);
+
+    node* b = nullptr;
+    b = insertAtHead(b,6);
+    b = insertAtHead(b,4);
+    b = insertAtHead(b,2);
+
+    printLL(a);
+    printLL(b);
+
+    node* c = merge(a,b);
+    printLL(c);
+
     return 0;
 }
