@@ -117,6 +117,16 @@ node* merge(node* a, node* b) {
     return c;
 }
 
+int getMid(node* head) {
+    if(head == nullptr) return 0;
+    node* slowPtr = head;
+    node* fastPtr = head;
+    while(fastPtr->next!=nullptr && fastPtr->next->next!=nullptr) {
+        slowPtr = slowPtr->next;
+        fastPtr = fastPtr->next->next;
+    }
+    return slowPtr->data;
+}
 
 int main() {
     node* head = nullptr;
@@ -147,6 +157,7 @@ int main() {
 
     node* c = merge(a,b);
     printLL(c);
+    cout << getMid(c) << endl;
 
     return 0;
 }
