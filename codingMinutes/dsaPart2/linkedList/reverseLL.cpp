@@ -36,6 +36,21 @@ void printLL(Node* head) {
     cout << endl;
 }
 
+Node* reverseLL(Node* head) {
+    if(head == nullptr || head->next == nullptr) return head;
+    Node* prev = nullptr;
+    Node* curr = head;
+
+    while(curr->next!=nullptr) {
+        Node* temp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = temp;
+    }
+    curr->next = prev;
+    return curr;
+}
+
 int main() {
     Node* head = nullptr;
     head = insertNode(head,1);
@@ -43,6 +58,8 @@ int main() {
     head = insertNode(head,3);
     head = insertNode(head,4);
     head = insertNode(head,5);
+    printLL(head);
+    head = reverseLL(head);
     printLL(head);
     return 0;
 }
