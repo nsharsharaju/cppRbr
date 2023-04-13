@@ -55,6 +55,16 @@ void printLL(Node* head) {
     return;
 }
 
+int countNodes(Node* head) {
+    int count = 0;
+    Node* trav = head;
+    while(trav!=nullptr) {
+        count++;
+        trav =  trav->next;
+    }
+    return count;
+}
+
 int main() {
     Node* head = nullptr;
     head = insertAtBegin(head,1);
@@ -68,5 +78,6 @@ int main() {
     head = insertAtEnd(head,9);
     head = insertAtEnd(head,10);
     printLL(head);
+    cout << countNodes(head) << endl;
     return 0;
 }
