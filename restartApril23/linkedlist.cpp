@@ -26,6 +26,20 @@ Node* insertAtBegin(Node* head,int data) {
     return head;
 }
 
+Node* insertAtEnd(Node* head,int data) {
+    if(head == nullptr) {
+        return createNode(data);
+    }
+
+    Node* trav = head;
+    while(trav->next!=nullptr) {
+        trav = trav->next;
+    }
+
+    trav->next = createNode(data);
+    return head;
+}
+
 void printLL(Node* head) {
     if(head == nullptr) {
         return;
@@ -48,6 +62,11 @@ int main() {
     head = insertAtBegin(head,3);
     head = insertAtBegin(head,4);
     head = insertAtBegin(head,5);
+    head = insertAtEnd(head,6);
+    head = insertAtEnd(head,7);
+    head = insertAtEnd(head,8);
+    head = insertAtEnd(head,9);
+    head = insertAtEnd(head,10);
     printLL(head);
     return 0;
 }
