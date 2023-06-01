@@ -65,6 +65,11 @@ int countNodes(Node* head) {
     return count;
 }
 
+Node* reverseLL(Node* head) {
+    if(head == nullptr || head->next == nullptr) return head;
+    Node* trav = head;
+}
+
 int main() {
     Node* head = nullptr;
     head = insertAtBegin(head,1);
