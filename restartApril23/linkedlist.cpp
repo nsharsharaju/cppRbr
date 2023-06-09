@@ -67,7 +67,18 @@ int countNodes(Node* head) {
 
 Node* reverseLL(Node* head) {
     if(head == nullptr || head->next == nullptr) return head;
-    Node* trav = head;
+    Node* prev = nullptr;
+    Node* curr = head;
+    Node* temp = nullptr;
+
+    while(curr->next!=nullptr) {
+        temp = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = temp;
+    }
+    curr->next = prev;
+    return curr;
 }
 
 int main() {
@@ -82,6 +93,8 @@ int main() {
     head = insertAtEnd(head,8);
     head = insertAtEnd(head,9);
     head = insertAtEnd(head,10);
+    printLL(head);
+    head = reverseLL(head);
     printLL(head);
     cout << countNodes(head) << endl;
     return 0;
